@@ -10,6 +10,7 @@ import "./App.css";
 
 function App() {
   return (
+    //PAGINAS E SUAS ROTAS
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Start />} />

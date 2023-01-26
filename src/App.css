@@ -45,6 +45,7 @@
 .hidden {
   display: none;
 }
+
 @media (max-width: 1900px) {
   .confirmButton {
     top: 95%;

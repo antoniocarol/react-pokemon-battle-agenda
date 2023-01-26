@@ -6,15 +6,19 @@ import LeftArrow from "../../assets/leftarrow.png";
 import "./styles.css";
 
 export default function PanelSelectionP2(props) {
+  // FUNCOES QUE SERÃO USADAS POSTERIORMENTE
   const location = useLocation();
   const navigate = useNavigate();
 
+  // ARMAZEM DE VARIAVEIS DA PAGINA
   const [pokemonImageP2, setPokemonImageP2] = useState("");
   const [pokemonNameP2, setPokemonNameP2] = useState("");
   const [page, setPage] = useState(0);
   const [offsetQuery, setOffsetQuery] = useState(0);
 
-  useEffect(() => getPokemon(), []);
+  useEffect(() => getPokemon(), []); //CHAMARA A FUNCAO APOS O LOADING DA PAGINA
+
+  // AREA ABAIXO É PARA O FUNCIONAMENTO DE TRANSICAO DE VARIAVEIS PARA OUTRAS PAGINAS
   const storagedPokemonP2 = () => {
     navigate("/date", {
       state: {
@@ -26,6 +30,8 @@ export default function PanelSelectionP2(props) {
       },
     });
   };
+
+  //CHAMANDO API
   const getPokemon = (next, search, value) => {
     if (search) {
       let url = `https://pokeapi.co/api/v2/pokemon/${value}`;
@@ -76,41 +82,46 @@ export default function PanelSelectionP2(props) {
     }
   };
 
+  //FUNCIONAMENTO DOS BOTOES LATERAIS
   const handleLeftArrow = () => {
+    let tempPage = page;
     if (page === 0 && offsetQuery === 0) {
       return;
     }
-    if (offsetQuery >= 20 && page != 0) {
+    if (offsetQuery >= 20 && page !== 0) {
       getPokemon("next");
-      setPage((page -= 1));
+      setPage((tempPage -= 1));
       return;
     }
     if (page === 0) {
       setOffsetQuery((offsetQuery -= 20));
       if (offsetQuery === 0) {
-        setPage((page = 20));
+        setPage(20);
       } else {
-        setPage((page = 19));
+        setPage(19);
         getPokemon("next");
         return;
       }
     }
     getPokemon();
-    setPage((page -= 1));
+    setPage((tempPage -= 1));
   };
   const handleRightArrow = () => {
+    let tempPage = page;
     if (page === 19) {
       setOffsetQuery((offsetQuery += 20));
-      setPage((page = 0));
+      setPage(0);
     }
     if (offsetQuery >= 20) {
       getPokemon("next");
-      setPage((page += 1));
+      setPage((tempPage += 1));
       return;
     }
     getPokemon();
-    setPage((page += 1));
+    setPage((tempPage += 1));
   };
+
+  //FUNCIONAMENTO DA BARRA DE PESQUISA
   const handleOnChangeInput = (e) => {
     e.preventDefault();
     if (e.target.value === "") {
@@ -120,6 +131,7 @@ export default function PanelSelectionP2(props) {
     }
   };
   return (
+    //RENDERIZACAO DO COMPONENTE
     <div>
       <div className="panelSelection">
         <img

@@ -5,6 +5,7 @@ import { MuiPickersUtilsProvider, TimePicker } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { makeStyles } from "@material-ui/core/styles";
 
+// AREA DE ESTILIZACAO DE COMPONENTES
 const useStyles = makeStyles({
   gridFirst: {
     background: "linear-gradient(90deg, #fc466ae8 0%, #3f5efbdb 100%)",
@@ -25,15 +26,16 @@ const useStyles = makeStyles({
 
 function ChooseTime() {
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // FUNCOES QUE SERÃO USADAS POSTERIORMENTE
   const classes = useStyles();
 
-  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState(new Date()); //ARMAZEM DO TEMPO DA PARTIDA
 
   function handleTimeChange(date) {
-    setSelectedTime(date);
+    setSelectedTime(date); //DEFINE O TEMPO
   }
 
+  // AREA ABAIXO É PARA O FUNCIONAMENTO DE TRANSICAO DE VARIAVEIS PARA OUTRAS PAGINAS
   const storagedTime = () => {
     navigate("/resume", {
       state: {
@@ -48,6 +50,7 @@ function ChooseTime() {
     });
   };
   return (
+    //RENDERIZACAO DO COMPONENTE
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container alignContent="space-around" className={classes.gridFirst}>
         <TimePicker

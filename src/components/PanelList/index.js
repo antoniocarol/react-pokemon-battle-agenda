@@ -3,6 +3,7 @@ import { Grid, Avatar, Typography } from "@material-ui/core";
 import { format } from "date-fns";
 import { makeStyles } from "@material-ui/core/styles";
 
+// AREA DE ESTILIZACAO DE COMPONENTES
 const useStyles = makeStyles({
   gridPrincipal: {
     display: "flex",
@@ -53,12 +54,13 @@ const useStyles = makeStyles({
 
 export default function PanelList() {
   const classes = useStyles();
-  const location = useLocation();
+  const location = useLocation(); // FUNCOES QUE SERÃO USADAS POSTERIORMENTE
 
-  const battleDate = format(location.state.date.selectedDate, "MM/dd/yyyy");
-  const battleTime = format(location.state.time.selectedTime, "HH:mm a");
+  const battleDate = format(location.state.date.selectedDate, "MM/dd/yyyy"); //ARMAZEM DA DATA DA PARTIDA
+  const battleTime = format(location.state.time.selectedTime, "HH:mm a"); //ARMAZEM TEMPO DA PARTIDA
 
   return (
+    //RENDERIZACAO DO COMPONENTE
     <div>
       <Grid className={classes.gridPrincipal}>
         <Grid className={classes.gridSecond}>

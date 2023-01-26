@@ -5,6 +5,7 @@ import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { makeStyles } from "@material-ui/core/styles";
 
+// AREA DE ESTILIZACAO DE COMPONENTES
 const useStyles = makeStyles({
   gridFirst: {
     background: "linear-gradient(90deg, #fc466ae8 0%, #3f5efbdb 100%)",
@@ -25,15 +26,16 @@ const useStyles = makeStyles({
 
 export default function ChooseDate() {
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // FUNCOES QUE SERÃO USADAS POSTERIORMENTE
   const classes = useStyles();
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date()); //ARMAZEM DA DATA DA PARTIDA
 
   function handleDateChange(date) {
-    return setSelectedDate(date);
+    return setSelectedDate(date); //DEFINE A DATA
   }
 
+  // AREA ABAIXO É PARA O FUNCIONAMENTO DE TRANSICAO DE VARIAVEIS PARA OUTRAS PAGINAS
   const storagedDate = () => {
     navigate("/time", {
       state: {
@@ -47,6 +49,7 @@ export default function ChooseDate() {
     });
   };
   return (
+    //RENDERIZACAO DA SELECAO DE DATA
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container alignContent="space-around" className={classes.gridFirst}>
         <DatePicker
