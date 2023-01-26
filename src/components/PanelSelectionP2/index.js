@@ -11,8 +11,8 @@ export default function PanelSelectionP2(props) {
 
   const [pokemonImageP2, setPokemonImageP2] = useState("");
   const [pokemonNameP2, setPokemonNameP2] = useState("");
-  let [page, setPage] = useState(0);
-  let [offsetQuery, setOffsetQuery] = useState(0);
+  const [page, setPage] = useState(0);
+  const [offsetQuery, setOffsetQuery] = useState(0);
 
   useEffect(() => getPokemon(), []);
   const storagedPokemonP2 = () => {
@@ -28,8 +28,6 @@ export default function PanelSelectionP2(props) {
   };
   const getPokemon = (next, search, value) => {
     if (search) {
-      console.log("oi1");
-
       let url = `https://pokeapi.co/api/v2/pokemon/${value}`;
       axios
         .get(url)
@@ -43,8 +41,6 @@ export default function PanelSelectionP2(props) {
       return;
     }
     if (!next && !search && !value) {
-      console.log("oi2");
-
       let url = `https://pokeapi.co/api/v2/pokemon/`;
       axios
         .get(url)

@@ -55,8 +55,8 @@ export default function PanelList() {
   const classes = useStyles();
   const location = useLocation();
 
-  let battleDate = format(location.state.date.selectedDate, "MM/dd/yyyy");
-  let battleTime = format(location.state.time.selectedTime, "HH:mm a");
+  const battleDate = format(location.state.date.selectedDate, "MM/dd/yyyy");
+  const battleTime = format(location.state.time.selectedTime, "HH:mm a");
 
   return (
     <div>

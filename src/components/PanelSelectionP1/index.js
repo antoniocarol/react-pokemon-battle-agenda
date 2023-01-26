@@ -7,8 +7,8 @@ import "./styles.css";
 
 export default function PanelSelectionP1(props) {
   const navigate = useNavigate();
-  let [page, setPage] = useState(0);
-  let [offsetQuery, setOffsetQuery] = useState(0);
+  const [page, setPage] = useState(0);
+  const [offsetQuery, setOffsetQuery] = useState(0);
 
   const [pokemonImageP1, setPokemonImageP1] = useState("");
   const [pokemonNameP1, setPokemonNameP1] = useState("");
@@ -53,8 +53,6 @@ export default function PanelSelectionP1(props) {
         })
         .catch((error) => console.log(error));
     } else {
-      console.log("oi3");
-
       let url = `https://pokeapi.co/api/v2/pokemon/?offset=${offsetQuery}&limit=20`;
       axios
         .get(url)
