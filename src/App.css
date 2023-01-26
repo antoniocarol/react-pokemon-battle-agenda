@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Seymour One", sans-serif;
+}
+
+.startButton,
+.confirmButton {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  width: 200px;
+  height: 50px;
+
+  background-color: rgb(65, 212, 99);
+  color: aliceblue;
+  border: 1px solid aliceblue;
+
+  font-family: "Seymour One", sans-serif;
+  font-size: large;
+
+  cursor: pointer;
+  transition: background-color 1s;
+  animation: fadeOut 3s;
+}
+.confirmButton {
+  top: 85%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@keyframes fadeOut {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+@media (max-width: 1900px) {
+  .confirmButton {
+    top: 95%;
+  }
+}

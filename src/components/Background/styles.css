@@ -1,0 +1,31 @@
+video {
+  position: fixed;
+
+  width: 100%;
+  filter: blur(15px);
+}
+
+@media (min-aspect-ratio: 16/9) {
+  video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  video {
+    width: auto;
+    height: 100%;
+  }
+}
+@media (max-width: 767px) {
+  video {
+    display: none;
+  }
+  body {
+    background: url("../../assets/backgroundImage.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: center;
+  }
+}

@@ -1,0 +1,127 @@
+.panelSelection {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(90deg, #fc466ae8 0%, #3f5efbdb 100%);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  animation: fadeIn 3s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.leftArrow,
+.rightArrow {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.leftArrow:hover {
+  width: 81px;
+  height: 81px;
+}
+.rightArrow:hover {
+  width: 81px;
+  height: 81px;
+}
+
+.pokemonMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.pokemonMenu img {
+  width: 300px;
+}
+
+.player,
+.pokemonName,
+.textContainer {
+  color: rgb(240, 248, 255);
+  text-transform: uppercase;
+  text-shadow: 0 -3px 0 #333, 0 6px 8px rgba(0, 0, 0, 0.4),
+    0 9px 10px rgba(0, 0, 0, 0.15), 0 30px 10px rgba(0, 0, 0, 0.18),
+    0 15px 10px rgba(0, 0, 0, 0.21);
+}
+
+.player {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.textContainer {
+  color: rgba(240, 248, 255, 0.63);
+}
+
+.pokemonName {
+  font-size: 30px;
+}
+
+.pokemonInput {
+  width: 200px;
+  height: 30px;
+
+  margin-top: 35px;
+  padding-left: 5px;
+
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.confirmButton {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+
+  width: 200px;
+  height: 50px;
+
+  background-color: rgb(65, 212, 99);
+  color: aliceblue;
+  border: 1px solid aliceblue;
+
+  font-family: "Seymour One", sans-serif;
+  font-size: large;
+
+  cursor: pointer;
+  transition: background-color 1s;
+  animation: fadeOut 3s;
+}
+.confirmButton {
+  top: 85%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media (max-width: 767px) {
+  .panelSelection {
+    width: 80%;
+  }
+  .textContainer {
+    font-size: 80%;
+  }
+}
